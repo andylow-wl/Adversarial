@@ -1,18 +1,16 @@
-# Adversarial_Attack
-Training an image classification model to detect adversarial attacks 
+# Creating an Image Classification model to counter against adversarial attacks
 
-My notebook:
-https://www.kaggle.com/andylow1704/image-multiclass-pytorch-with-adversarial-attack
+[My Kaggle Notebook](https://www.kaggle.com/andylow1704/image-multiclass-pytorch-with-adversarial-attack)
 
-Image classification dataset:
-https://www.kaggle.com/puneet6060/intel-image-classification
+List of references:
 
-Image classification notebook:
-https://www.kaggle.com/asollie/intel-image-multiclass-pytorch-94-test-acc
+[Dataset](https://www.kaggle.com/puneet6060/intel-image-classification)
 
-References for Adversarial attacks:
-https://pytorch.org/tutorials/beginner/fgsm_tutorial.html
-https://colab.research.google.com/drive/19N9VWTukXTPUj9eukeie55XIu3HKR5TT
+[Reference Notebook](https://www.kaggle.com/asollie/intel-image-multiclass-pytorch-94-test-acc)
+
+[FGSM method](https://pytorch.org/tutorials/beginner/fgsm_tutorial.html)
+
+[Article on Adversarial attack](https://colab.research.google.com/drive/19N9VWTukXTPUj9eukeie55XIu3HKR5TT)
 
 
 # What is Adversarial Attack?
@@ -80,6 +78,12 @@ Similar to the previous method, I will test my new model using a mixture of vary
 
 # Conclusion 
 ![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/Evaluation%20table.PNG)
+
+We can conclude that training our model with modified images will help to increase the model accuracy in detecting modified images.
+
+The accuracy of the model can be further improved if we transform eac input image to generate a number of randomly modified images. In thsi way, there will be more training samples to train our model , hence improving its accuracy. However, such method will be time consuming since there is an increased number of training samples. 
+
+
 
 
 

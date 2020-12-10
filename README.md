@@ -30,6 +30,6 @@ For this project, I will be training a model (using Pytorch) with modified image
 
 Best validation accuracy: 0.924
 
-
+![](Images/accuracy%20.PNG)
 
 # Test Result (Using full 

@@ -2,8 +2,6 @@
 
 [My Kaggle Notebook](https://www.kaggle.com/andylow1704/image-multiclass-pytorch-with-adversarial-attack)
 
-List of references:
-
 [Dataset](https://www.kaggle.com/puneet6060/intel-image-classification)
 
 [Reference Notebook](https://www.kaggle.com/asollie/intel-image-multiclass-pytorch-94-test-acc)
@@ -15,9 +13,19 @@ List of references:
 
 # What is Adversarial Attack?
 
+There are many types of adversarial attacks but we are focusing on misclassification in this project. In the case of misclassification, the attacker only wants the output classification to be inaccurate and he/she does not care about the output. Multiple number of output misclassification will result in an inaccurate classification model.
 
+In this project, we will use the [Fast Gradient Sign Attack(FGSM)](https://pytorch.org/tutorials/beginner/fgsm_tutorial.html) as the form of adversarial attack.
 
+Described by Goodfollow et.al in [Explaining and Harnessing Adversarial Examples](https://arxiv.org/abs/1412.6572), the FGSM method is designed to attack neural networks by leveraging the way they learn, gradients. A normal neural network model works by minimizing the loss by adjusting the weights based on the backpropogated gradients. How this attack works is that it uses the gradient of the loss w.r.t the input data, then adjusts the input data to maximize the loss, casuing the classification model to be inaccurate. 
 
+![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/panda.PNG)
+[Source:](https://arxiv.org/abs/1412.6572)
+
+The FGSM method adjusts the input images by changing the epsilon which is the sign. By changing the sign, the output will change too. As shown above, the output changes from "panda" to "gibbon". 
+
+FGSM code:
+![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/FGSM.png)
 
 
 
@@ -39,19 +47,20 @@ Test accuracy: 0.92
 
 # Implementing Fast Gradient Sign Method (FGSM) on test images 
 
-For the test images, I will vary the epsilon(0,0.05,0.1,0.15,0.2,0.25,0.3) for the FGSM. 
+
+Using the FGSM method, I will vary the epsilon(0,0.05,0.1,0.15,0.2,0.25,0.3) for all the test images.
 
 ![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/accuracy%20vs%20epilson.PNG)
 
-The fall in test accuracy(epsilon = 0) compared to the previous test accuracy is because of the implemention of requires_grad of tensor which was important for the adversarial attack. 
+The fall in test accuracy(epsilon = 0) compared to the previous test accuracy is because of the implemention of [requires_grad](https://pytorch.org/docs/stable/notes/autograd.html#multithreaded-autograd) of tensor which was important for the adversarial attack to work. 
 
-From the graph above, we can see that epsilon is negatively correlated with the accuracy. 
+From the graph above, we can see that the test accuracy is negatively correlated with the epsilon. 
 
 # Varying the epsilon on test images
 
-In the real world, the epsilons may not always be constant, hence I will test my current model using 2 different types of test datasets:
-1) Mixture of original test images and varying epsilon images
-2) Full set of varying epsilon images 
+In the real world, the epsilons may not always be constant, hence I will test my current model using 2 different types of test datasets with epsilons ranging from 0 to 0.3:
+1) Mixture of original test images and modified images
+2) Full set of modified test images 
 
 # Test result for case 1 : 
 ![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/Report(Before%2Cmix).PNG) 
@@ -59,13 +68,15 @@ In the real world, the epsilons may not always be constant, hence I will test my
 # Test result for case 2 :
 ![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/Report(Before%2Cfull).PNG)
 
-# Counter against FGSM 
-.
-.
-.
-.
-.
-.
+From the results, we can see that our original model is not accurate in detecting images that were deliberately modified. 
+
+# Countering FGSM 
+
+One way to counter against adversarial attack is to [proactively generate adversarial examples as part of the training procedure](https://colab.research.google.com/drive/19N9VWTukXTPUj9eukeie55XIu3HKR5TT#scrollTo=KiDYu9gOF_aU).
+
+
+
+
 Similar to the previous method, I will test my new model using a mixture of varying epsilon images and original test images(case 1 ) and a full set of varying epsilon images (case 2). 
 
 # Test result for case 1 : 

@@ -53,7 +53,7 @@ For the test set, I will be using a constant epsilon to generate a full set of a
 
 ![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/accuracy%20vs%20epilson.PNG)
 
-The fall in test accuracy(epsilon = 0) compared to the original test accuracy(0.92) was due to the implemention of [requires_grad](https://pytorch.org/docs/stable/notes/autograd.html#multithreaded-autograd) of tensor which was important for the adversarial attack to work. 
+The fall in test accuracy(epsilon = 0) compared to the original test accuracy(0.92) was due to the introduction of torch.clamp in the FGSM method. 
 
 From the graph above, we can see that the test accuracy is negatively correlated with the epsilon. 
 
@@ -89,10 +89,11 @@ Similar to the previous testing method, I will test the accuracy of my new model
 ![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/Report(After%2Cfull).PNG)
 
 
-
 # Conclusion 
 ![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/Evaluation%20table.PNG)
 
 From the result above, we can see that the new model is much more accurate in predicting adversarial examples. 
 
 The accuracy of the model can be further improved. For each input in the train dataloaders, we can use the input to generate a number of randomly modified inputs. Afterwards, we can then add these new inputs to our original training samples to increase the number of training samples that we have. The new model will be much more accurate since it has more training samples to train on . However, such method will be time consuming since and will take up lots of memory space in the GPU. 
+
+In addition, you can try to train the model with full set of adversarial examples instead of using a combination of adversarial and normal images like mine. The model will be accurate in predicting adversarial images but the drawback is that it will be poor in predicting normal images.  

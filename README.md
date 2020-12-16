@@ -1,4 +1,4 @@
-# Creating an Image Classification model to counter against adversarial attacks
+# Adversarial attack on Image Classification Model 
 
 [My Kaggle Notebook](https://www.kaggle.com/andylow1704/image-multiclass-pytorch-with-adversarial-attack)
 
@@ -97,3 +97,20 @@ From the result above, we can see that the new model is much more accurate in pr
 The accuracy of the model can be further improved. For each input in the train dataloaders, we can use the input to generate a number of randomly modified inputs. Afterwards, we can then add these new inputs to our original training samples to increase the number of training samples that we have. The new model will be much more accurate since it has more training samples to train on . However, such method will be time consuming since and will take up lots of memory space in the GPU. 
 
 In addition, you can try to train the model with full set of adversarial examples instead of using a combination of adversarial and normal images like mine. The model will be accurate in predicting adversarial images but the drawback is that it will be poor in predicting normal images.  
+
+
+# Adversarial attack on Object Detection 
+
+[Daedalus attack](https://github.com/NeuralSec/Daedalus-attack)
+[My notebook](https://colab.research.google.com/drive/1Hq_Z2vVJ5GB5t7CASSdh8_U5mY7BnpzH#scrollTo=CH8vslTQpwqF)
+
+
+![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/Combined%20image.png)
+
+![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/Combined%20image2.png)
+
+
+
+
+
+

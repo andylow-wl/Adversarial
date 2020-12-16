@@ -105,10 +105,14 @@ In addition, you can try to train the model with full set of adversarial example
 
 [My notebook](https://colab.research.google.com/drive/1Hq_Z2vVJ5GB5t7CASSdh8_U5mY7BnpzH#scrollTo=CH8vslTQpwqF)
 
+Using the [Daedalus attack](https://github.com/NeuralSec/Daedalus-attack), adversarial attack can be applied on object detection model such as YOLO. The original author is using a YOLOv3 with yolov5 weights. 
 
 ![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/Combined%20image.png)
 
+From the pictures above, we can see that both images look similar. However, after drawing the bounding boxes on both images to predict the classes, we can see that the adversarial image contains several classes which do not belong to the image. 
+
 ![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/Combined%20image2.png)
+
 
 
 

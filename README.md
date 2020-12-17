@@ -105,7 +105,9 @@ In addition, you can try to train the model with full set of adversarial example
 
 [My notebook](https://colab.research.google.com/drive/1Hq_Z2vVJ5GB5t7CASSdh8_U5mY7BnpzH#scrollTo=CH8vslTQpwqF)
 
-Using the [Daedalus attack](https://github.com/NeuralSec/Daedalus-attack), adversarial attack can be applied on object detection model such as YOLO. The original author is using a YOLOv3 with yolov5 weights. 
+The Daedalus attack is a type of adversarial attack which focuses on breaking the [Non-Maximum Suppression](https://towardsdatascience.com/non-maximum-suppression-nms-93ce178e177c), an algorithm that is used in YOLO. A full explaination of how the Daedalus attack can be found [here](https://arxiv.org/abs/1902.02067v3).
+
+Using the [Daedalus attack](https://github.com/NeuralSec/Daedalus-attack), adversarial attack can be applied on object detection model such as YOLO. The model used for prediction is a YOLOv3 model with yolov5 weights. 
 
 ![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/Combined%20image.png)
 

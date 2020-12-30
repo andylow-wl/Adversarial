@@ -130,7 +130,6 @@ Using the code, I have generated an adversarial stop sign patch with person as m
 ![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/Adversarial%20patches.png) 
 
 Pasting the advarsarial patch on an image will result in the following predictions.
-
 ![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/adversarial%20outcomes.png)
 
 The advarsarial patch could be resized or pasted in the middle of the image to create a much distorted prediction outcome. 

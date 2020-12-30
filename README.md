@@ -99,11 +99,11 @@ The accuracy of the model can be further improved. For each input in the train d
 In addition, you can try to train the model with full set of adversarial examples instead of using a combination of adversarial and normal images like mine. The model will be accurate in predicting adversarial images but the drawback is that it will be poor in predicting normal images.  
 
 
-# Adversarial attack on Object Detection 
+# Adversarial attack on Object Detection 1 
 
 [Daedalus attack](https://github.com/NeuralSec/Daedalus-attack)
 
-[My notebook](https://colab.research.google.com/drive/1Hq_Z2vVJ5GB5t7CASSdh8_U5mY7BnpzH#scrollTo=CH8vslTQpwqF)
+[My notebook](https://colab.research.google.com/drive/1Hq_Z2vVJ5GB5t7CASSdh8_U5mY7BnpzH?usp=sharing)
 
 The Daedalus attack is a type of adversarial attack which focuses on breaking the [Non-Maximum Suppression](https://towardsdatascience.com/non-maximum-suppression-nms-93ce178e177c), an algorithm that is used in YOLO. A full explaination of how the Daedalus attack can be found [here](https://arxiv.org/abs/1902.02067v3).
 
@@ -114,6 +114,33 @@ Using the [Daedalus attack](https://github.com/NeuralSec/Daedalus-attack), adver
 From the pictures above, we can see that both images look similar. However, after drawing the bounding boxes on both images to predict the classes, we can see that the adversarial image contains several classes which do not belong to the image. 
 
 ![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/Combined%20image2.png)
+
+However, this attack will only work on the YOLOv3 model with the specific weights as stated above. 
+
+# Adversarial attack on Object Detection 2 
+
+[Shapeshifter Attack](https://github.com/shangtse/robust-physical-attack)
+
+[My notebook](https://colab.research.google.com/drive/16EgJxJMSn4iyJhE7kfT3pLfRuSMlfyQk?usp=sharing)
+
+The main idea of this attack is to create an adversarial patch using an image of a stop sign. The output class of the advasarial patch can be selected at the start of the code. I have added an additional line of code at the end to paste the output advarsarial patch on the designated image. 
+
+Using the code, I have generated an adversarial stop sign patch with person as my target class. I tested the output advarsarial patch on 2 popular object detection models - [YOLOv3]( https://github.com/ultralytics/yolov3) and [YOLOv5](https://github.com/ultralytics/yolov5). Interestingly, the YOLOv3 model did not return any predictions for the advarsarial patch image. 
+
+![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/Adversarial%20patches.png) 
+
+Pasting the advarsarial patch on an image will result in the following predictions.
+
+![](https://github.com/andylow1704/Adversarial_Attack/blob/main/Images/adversarial%20outcomes.png)
+
+The advarsarial patch could be resized or pasted in the middle of the image to create a much distorted prediction outcome. 
+
+
+
+
+
+
+
 
 
 
